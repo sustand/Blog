@@ -28,3 +28,17 @@ function debounce(func, wait, immediate) {
         return result;
     }
 }
+
+var count = 1;
+var container = document.getElementById('container');
+
+function getUserAction() {
+    container.innerHTML = count++;
+    return '111'
+};
+
+var result = debounce(getUserAction, 1000, true)
+container.onmousemove = function(){
+    var res = result();
+    console.log(res)
+}
